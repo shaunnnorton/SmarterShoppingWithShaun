@@ -1,0 +1,79 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#header {
+    display: flex;
+    width: 50vw;
+    background-color: aquamarine;
+    justify-content: center;
+    padding: 0;
+}
+#shopping-list-header {
+    width: 80%;
+    text-align: center;
+    border:black 3px solid;
+}
+
+#price-header{
+    width: 20%;
+    text-align: center;
+    border:black 3px solid;
+}
+#input-area{
+    display:flex;
+    width: 50vw;
+    padding: 0;
+    background-color: aqua;
+    
+}
+#shopping-list{
+    width: 82.5%;
+    list-style: none;
+    padding: 0.2em;
+    border:black 3px solid;
+    margin: 0;
+}
+#shopping-list input{
+    width: 90%;
+}
+li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#prices{
+    width: 20%;
+    list-style: none;
+    padding: 0.2em;
+    border:black 3px solid;
+    margin: 0;
+}
+#prices input{
+    width: 90%;
+}
+#output-section{
+    display: flex;
+    background-color: aquamarine;
+    width: 50vw;
+}
+#TaxRate{
+    width: 80%;
+    border:black 3px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#TaxRate input{
+    width: 90%;
+    
+}
+#Total{
+    width: 20%;
+    border:black 3px solid;
+    text-align: center;
+    
+}
