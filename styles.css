@@ -77,3 +77,26 @@ li{
     text-align: center;
     
 }
+#save{
+    display: flex;
+    width: 50vw;
+    background-color: aquamarine;
+}
+.data-buttons {
+    width: 40%;
+    height: 30px;
+    border: inset black 3px;
+    background-color: aquamarine;
+    
+    
+}
+.data-buttons:hover{
+    background: rgb(91, 189, 156);
+    border: outset black 3px;
+}
+#save-key{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    border: solid black 3px;
+}

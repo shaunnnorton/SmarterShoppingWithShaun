@@ -23,6 +23,9 @@ function addItem() {
     new_price.innerHTML = `<input type="number" class="price_item" value=0 placeholder="Item Price">`
     prices.appendChild(new_price)
     new_price.addEventListener("input",calculate_total)
+    new_price.addEventListener("input",extendList)
+    new_item.addEventListener("input",calculate_total)
+    new_item.addEventListener("input",extendList)
 }
 //---------------------------------------------------------------
 /*Calculates the total by adding all values from the price list and 
@@ -87,12 +90,45 @@ function load(){
     let costs = document.querySelectorAll(".price_item")
     let save_data = JSON.parse(localStorage.getItem(save_key.value))
     if(items.length < save_data.length){
-        for(let i = 0; i < save_data.length; i++){
+        for(let i = 0; i < (save_data.length-items.length); i++){
             addItem()
         }
     }
+    items = document.querySelectorAll(".list_item")
+    costs = document.querySelectorAll(".price_item")
+
     for(let i = 0; i < save_data.length; i++){
+        
         items[i].value = save_data[i].itemName
         costs[i].value = save_data[i].itemPrice
+        
+    }
+    calculate_total()
+}
+//-----------------------------------------------------------------
+function extendList(){
+    let items = document.querySelectorAll(".list_item")
+    let costs = document.querySelectorAll(".price_item")
+    let last_item = items.length - 1
+
+    if(items[last_item].value != "" ||  costs[last_item].value != 0){
+        addItem()
     }
 }
+
+function checkPrices(product,city){
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","https://grocerybear.com/getitems", false)
+    xhr.setRequestHeader("api-key","B46011AC9EFA593D73ED9298361574814BD718EFD037CA167CF7BDBFA1224A0E")
+    xhr.setRequestHeader("Content-Type","application/json")
+    
+    xhr.onreadystatechange = function(){
+        let response = JSON.parse(this.responseText)
+        console.log(this.responseText)
+    }
+    xhr.send(`{"city":${city}", "product":"${product}", "num_days": 0}`)
+}
+checkPrices()
+
+
