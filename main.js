@@ -115,7 +115,7 @@ function extendList(){
         addItem()
     }
 }
-
+//------------------------------------------------------------------
 function checkPrices(product,city){
 
     var xhr = new XMLHttpRequest();
@@ -129,6 +129,6 @@ function checkPrices(product,city){
     }
     xhr.send(`{"city":${city}", "product":"${product}", "num_days": 0}`)
 }
-checkPrices()
+//-------------------------------------------------------------------
 
 
