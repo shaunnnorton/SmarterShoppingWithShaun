@@ -7,7 +7,11 @@ for(let i = 0; i<number_of_items;i++){
     addItem()
 }
 tax_rate.addEventListener("input",calculate_total)
-
+const save_key = document.querySelector("#save-key")
+const save_button = document.querySelector("#Save-Button")
+save_button.addEventListener("click",save)
+const load_button = document.querySelector("#Load-Button")
+load_button.addEventListener("click",load)
 //---------------------------------------------------------------
 /*Function that adds list items containing an input to both the shoping list and the price list 
 adds an event listener to the price list item to calculate total. */
@@ -38,6 +42,7 @@ function calculate_total(){
     net_price = parseFloat(gross_price*tax_multiplier,2)
     total.textContent = `Total: $${net_price}`
     format_value('add',tax_input,"%")
+    
 }
 //----------------------------------------------------------------
 /*Formats the provided inputs value to remove all characters not numbers
@@ -60,5 +65,34 @@ function format_value(perform,item,symbol){
         }
         if(symbol == '%'){item.value = `${item.value}${symbol}`}
         if(symbol == '$'){item.value = `${symbol}${parseFloat(item.value).toFixed(2)}`}
+    }
+}
+//----------------------------------------------------------------
+function save(){
+    let items = document.querySelectorAll(".list_item")
+    let costs = document.querySelectorAll(".price_item")
+    let save_data = []
+    for(let i = 0; i < items.length; i++){
+        let object = {}
+        object["itemName"] = items[i].value
+        object["itemPrice"] = costs[i].value
+        save_data.push(object)
+    }
+    //console.log(save_data)
+    localStorage.setItem(save_key.value,JSON.stringify(save_data))
+}
+//----------------------------------------------------------------
+function load(){
+    let items = document.querySelectorAll(".list_item")
+    let costs = document.querySelectorAll(".price_item")
+    let save_data = JSON.parse(localStorage.getItem(save_key.value))
+    if(items.length < save_data.length){
+        for(let i = 0; i < save_data.length; i++){
+            addItem()
+        }
+    }
+    for(let i = 0; i < save_data.length; i++){
+        items[i].value = save_data[i].itemName
+        costs[i].value = save_data[i].itemPrice
     }
 }
