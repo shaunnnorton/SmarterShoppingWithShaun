@@ -4,6 +4,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    flex-wrap: wrap;
 }
 #header {
     display: flex;
@@ -140,16 +141,18 @@ li{
     margin-left: 5px;
     width: 20vw;
     align-self: center;
-    height: 245px;
+    height: auto;
     background-color: aquamarine;
     border: black solid 3px;
     border-radius: 10px;
     margin-bottom: 40px;
+    min-width:261px ;
+    min-height:251px ;
     
 }
 #essentials-section{
     border: black 3px solid;
-    background-color: aquamarine;
+    background-color: aqua;
     margin:3px;
     border-radius: 10px;
     padding:3px;
@@ -158,9 +161,21 @@ li{
 
 #tax-rate-section{
     border: black 3px solid;
-    background-color: aquamarine;
+    background-color: aqua;
     margin:3px;
     border-radius: 10px;
     padding:3px;
     height: 50%;
+}
+#essentials-section h1{
+    padding: 0;
+    margin-top: 0;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+#tax-rate-section h1{
+    padding: 0;
+    margin-top: 0;
+    text-decoration: underline;
+    text-decoration-style: dashed;
 }
