@@ -6,6 +6,9 @@ body{
     height: 100vh;
     flex-wrap: wrap;
 }
+main{
+    min-width:261px ;
+}
 #header {
     display: flex;
     width: 50vw;
