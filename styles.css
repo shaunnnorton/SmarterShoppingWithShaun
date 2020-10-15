@@ -5,6 +5,7 @@ body{
     justify-content: center;
     height: 100vh;
     flex-wrap: wrap;
+    background-color: rgb(85, 112, 153);
 }
 main{
     min-width:261px ;
@@ -16,7 +17,7 @@ main{
     justify-content: center;
     padding: 0;
     margin-bottom: 5px;
-    border-radius: 25%;
+    border-radius: 10px;
     min-width:261px ;
 }
 #shopping-list-header {
