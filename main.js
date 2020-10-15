@@ -12,6 +12,14 @@ const save_button = document.querySelector("#Save-Button")
 save_button.addEventListener("click",save)
 const load_button = document.querySelector("#Load-Button")
 load_button.addEventListener("click",load)
+let essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']
+const essentials_button = document.querySelector("#essentials-button")
+essentials_button.addEventListener("click",findEssientialPrices)
+const essential_city = document.querySelector("#price-area")
+const tax_rate_button = document.querySelector("#zip-go-button")
+tax_rate_button.addEventListener("click", importTaxRate)
+const zip_code_input = document.querySelector("#zip-code")
+const tax_input = document.querySelector("#tax-input")
 //---------------------------------------------------------------
 /*Function that adds list items containing an input to both the shoping list and the price list 
 adds an event listener to the price list item to calculate total. */
@@ -34,7 +42,7 @@ Total section to the Total: + calculated total */
 function calculate_total(){
     const input_prices = document.querySelectorAll(".price_item")
     let gross_price = 0
-    const tax_input = document.querySelector("#tax-input")
+    
     let net_price = 0
     let tax_multiplier = (format_value('remove',tax_input,'')/100)+1
     for(let i = 0;i < input_prices.length; i++){
@@ -117,18 +125,46 @@ function extendList(){
 }
 //------------------------------------------------------------------
 function checkPrices(product,city){
-
     var xhr = new XMLHttpRequest();
     xhr.open("POST","https://grocerybear.com/getitems", false)
     xhr.setRequestHeader("api-key","B46011AC9EFA593D73ED9298361574814BD718EFD037CA167CF7BDBFA1224A0E")
     xhr.setRequestHeader("Content-Type","application/json")
-    
+    let toReturn = null
     xhr.onreadystatechange = function(){
         let response = JSON.parse(this.responseText)
-        console.log(this.responseText)
+        //console.log(this.responseText)
+        toReturn = JSON.stringify(response[response.length-1]['price'])
+
     }
-    xhr.send(`{"city":${city}", "product":"${product}", "num_days": 0}`)
+    xhr.send(`{"city":"${city}", "product":"${product}", "num_days": 0}`)
+    return toReturn
 }
 //-------------------------------------------------------------------
+function findEssientialPrices(){
+    let items = document.querySelectorAll(".list_item")
+    let costs = document.querySelectorAll(".price_item")
+    for(let i=0; i<items.length;i++){
 
+        if(essentials_products.includes(items[i].value)){
+            //console.log(costs[i].value)
+            //console.log(essential_city.value)
+            costs[i].value = checkPrices(items[i].value,essential_city.value)
+            //console.log(checkPrices(items[i].value,essential_city.value))
+        }
+    }
+}
+//----------------------------------------------------------------------
+function importTaxRate(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("get",`https://api.zip-tax.com/request/v40?key=3EuSmNeUasn8QbLY&postalcode=${zip_code_input.value}`, false)
+    xhr.onreadystatechange = function(){
+        let response = JSON.parse(this.responseText)
+        //console.log(response['results'][0]['taxSales']*100)
+        //console.log(this.responseText)
+        tax_input.value = response['results'][0]['taxSales']*100+'%'
 
+    }
+
+    xhr.send()
+
+}

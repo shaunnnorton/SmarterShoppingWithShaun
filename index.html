@@ -7,37 +7,68 @@
     <title>Smarter Shopping with Shaun</title>
 </head>
 <body>
-    <section id="header">
-        <div id="shopping-list-header">
-            Shopping List
-        </div>
-        <div id="price-header">
-            Price
-        </div>
-    </section>
-    <section id="input-area">
-        <ul id="shopping-list">
+    <main>
+        <header id="header">
+            <div id="shopping-list-header">
+                Shopping List
+            </div>
+            <div id="price-header">
+                Price
+            </div>
+        </header>
+        <section id="input-area">
+            <ul id="shopping-list">
 
-        </ul>
-        <ul id="prices">
+            </ul>
+            <ul id="prices">
 
-        </ul>
-    </section>
-    <section id="output-section">
-        <div id="TaxRate">
-            <input type="text" placeholder="TaxRate" id="tax-input" >
-        </div>
-        <div id="Total">
-            Total:
-        </div>
+            </ul>
+        </section>
+        <section id="output-section">
+            <div id="TaxRate">
+                <input type="text" placeholder="TaxRate" id="tax-input" >
+            </div>
+            <div id="Total">
+                Total:
+            </div>
 
-    </section>
-    <section id="save">
-        <button id="Save-Button" type="button" class="data-buttons">Save</button>
-        <input id="save-key" type="text" placeholder="Key">
-        <button id="Load-Button" type="button" class="data-buttons">Load</button>
-    </section>
+        </section>
+        <section id="save">
+            <button id="Save-Button" type="button" class="data-buttons">Save</button>
+            <input id="save-key" type="text" placeholder="Key">
+            <button id="Load-Button" type="button" class="data-buttons">Load</button>
+        </section>
+    </main>
+    <section id="extra-inputs">
+        <article id="tax-rate-section">
+            <span>Import TaxRate</span>
+            <input type="number" id="zip-code" placeholder="ZIPCODE">
+            <button id="zip-go-button" type="button">GO</button>
 
+        </article>
+        <article id="essentials-section">
+            <label id="area-selector-label">
+                What is the closest area to you?<br>
+                <select name="area" id="price-area">
+                    <option value="LV" name="area">Las Vegas, NV</option>
+                    <option value="Boise">Boise, ID</option>
+                    <option value="DC">Washington, DC</option>
+                    <option value="Honolulu">Honolulu, HI</option>
+                    <option value="Houston">Houstin, TX</option>
+                    <option value="LA">Los Angeles, CA</option>
+                    <option value="Phoenix">Phoenix, AZ</option>
+                    <option value="Portland">Portland, OR</option>
+                    <option value="Seattle">Seattle, WA</option>
+                    <option value="SF">San Fransisco, CA</option>
+                </select>
+                
+            
+            </label>
+            <button type="button" id="essentials-button">Price Essentials</button>
+
+        </article>
+        
+    </section>
     <script src="main.js"></script>
 </body>
 </html>
