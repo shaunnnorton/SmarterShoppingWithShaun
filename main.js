@@ -1,25 +1,36 @@
+//---------------------------------------------------------------
+/*Declaring constant variables*/
 const shopping_list = document.querySelector("#shopping-list")
 const prices = document.querySelector("#prices")
-let number_of_items = 10
-const tax_rate = document.querySelector("#TaxRate")
-const total = document.querySelector("#Total")
-for(let i = 0; i<number_of_items;i++){
-    addItem()
-}
-tax_rate.addEventListener("input",calculate_total)
-const save_key = document.querySelector("#save-key")
-const save_button = document.querySelector("#Save-Button")
-save_button.addEventListener("click",save)
-const load_button = document.querySelector("#Load-Button")
-load_button.addEventListener("click",load)
-let essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']
-const essentials_button = document.querySelector("#essentials-button")
-essentials_button.addEventListener("click",findEssientialPrices)
-const essential_city = document.querySelector("#price-area")
-const tax_rate_button = document.querySelector("#zip-go-button")
-tax_rate_button.addEventListener("click", importTaxRate)
 const zip_code_input = document.querySelector("#zip-code")
 const tax_input = document.querySelector("#tax-input")
+const tax_input_popup = document.querySelector(".tax-ex")
+const tax_rate = document.querySelector("#TaxRate")
+const total = document.querySelector("#Total")
+const save_key = document.querySelector("#save-key")
+const save_button = document.querySelector("#Save-Button")
+const load_button = document.querySelector("#Load-Button")
+const essentials_button = document.querySelector("#essentials-button")
+const essential_city = document.querySelector("#price-area")
+const tax_rate_button = document.querySelector("#zip-go-button")
+const essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']
+const starting_items = 10
+//---------------------------------------------------------------
+/*Adding event listners for calculating total,saving and loading,finding prices, and finding the taxrate. */
+tax_rate.addEventListener("input",calculate_total)
+save_button.addEventListener("click",save)
+load_button.addEventListener("click",load)
+essentials_button.addEventListener("click",findEssientialPrices)
+tax_rate_button.addEventListener("click", importTaxRate)
+//---------------------------------------------------------------
+/*Adding eventlistners to make desctiptive popups functional*/
+tax_input.addEventListener("mouseover",function(){tax_input_popup.classList.toggle("show")})
+tax_input.addEventListener("mouseout",function(){tax_input_popup.classList.toggle("show")})
+//---------------------------------------------------------------
+/*Creates the inital list of items in the shopping list*/
+for(let i = 0; i<starting_items;i++){
+    addItem()
+}
 //---------------------------------------------------------------
 /*Function that adds list items containing an input to both the shoping list and the price list 
 adds an event listener to the price list item to calculate total. */
@@ -50,7 +61,7 @@ function calculate_total(){
             gross_price += parseFloat(input_prices[i].value)
         }
     }
-    net_price = parseFloat(gross_price*tax_multiplier,2)
+    net_price = parseFloat(gross_price*tax_multiplier).toFixed(2)
     total.textContent = `Total: $${net_price}`
     format_value('add',tax_input,"%")
     
@@ -79,6 +90,8 @@ function format_value(perform,item,symbol){
     }
 }
 //----------------------------------------------------------------
+/*Saves the contents of all the input boxes to local storage using the keyword provided in the 
+key textbox as the save key. */
 function save(){
     let items = document.querySelectorAll(".list_item")
     let costs = document.querySelectorAll(".price_item")
@@ -89,10 +102,11 @@ function save(){
         object["itemPrice"] = costs[i].value
         save_data.push(object)
     }
-    //console.log(save_data)
     localStorage.setItem(save_key.value,JSON.stringify(save_data))
 }
 //----------------------------------------------------------------
+/*Loads data from local storage placing each item in the position it was in before being saved.
+Gathers this data using the keyword provided in the "Key" input box. */
 function load(){
     let items = document.querySelectorAll(".list_item")
     let costs = document.querySelectorAll(".price_item")
@@ -114,6 +128,8 @@ function load(){
     calculate_total()
 }
 //-----------------------------------------------------------------
+/*Extends the list of textboxes for by one if the last box has had somehthing entered into it.
+This makes the list infinate as long as you keep adding items. */
 function extendList(){
     let items = document.querySelectorAll(".list_item")
     let costs = document.querySelectorAll(".price_item")
@@ -124,6 +140,8 @@ function extendList(){
     }
 }
 //------------------------------------------------------------------
+/*Takes a product and city and makes a call to the grocerybear api and returns the most recent price of the product in the city provided.
+The api only accepts ['eggs', 'milk', 'bread', 'rice', 'steak','butter'] as products.*/
 function checkPrices(product,city){
     var xhr = new XMLHttpRequest();
     xhr.open("POST","https://grocerybear.com/getitems", false)
@@ -140,27 +158,25 @@ function checkPrices(product,city){
     return toReturn
 }
 //-------------------------------------------------------------------
+/*Finds the price of 'eggs', 'milk', 'bread', 'rice', 'steak','butter' by passing them to checkPrices with 
+the city that is selected in city select box. Sets the price box of the item to the price that it finds.*/
 function findEssientialPrices(){
     let items = document.querySelectorAll(".list_item")
     let costs = document.querySelectorAll(".price_item")
     for(let i=0; i<items.length;i++){
-
         if(essentials_products.includes(items[i].value)){
-            //console.log(costs[i].value)
-            //console.log(essential_city.value)
             costs[i].value = checkPrices(items[i].value,essential_city.value)
-            //console.log(checkPrices(items[i].value,essential_city.value))
         }
     }
 }
 //----------------------------------------------------------------------
+/*Makes a call to the zip-tax api with the provided zipcode in the input box. Then
+sets the Taxrate value from the api's response. */
 function importTaxRate(){
     var xhr = new XMLHttpRequest();
     xhr.open("get",`https://api.zip-tax.com/request/v40?key=3EuSmNeUasn8QbLY&postalcode=${zip_code_input.value}`, false)
     xhr.onreadystatechange = function(){
         let response = JSON.parse(this.responseText)
-        //console.log(response['results'][0]['taxSales']*100)
-        //console.log(this.responseText)
         tax_input.value = response['results'][0]['taxSales']*100+'%'
 
     }
@@ -168,3 +184,5 @@ function importTaxRate(){
     xhr.send()
 
 }
+//---------------------------------------------------------------
+
