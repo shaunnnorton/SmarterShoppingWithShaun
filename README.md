@@ -1,8 +1,8 @@
 # Shopping Smart With Shaun
 
 A website that allows you to know how much you will spend when you go grocery shopping.
-You will never be short on cash again! 
-![alt text](./Images/Placeholder.png)
+You will never be short on cash again!
+![alt text](./Images/FullPageFinish.png)
 
 ## What can it do
 
@@ -18,6 +18,7 @@ This website can:
 ### Taking inputs
 
 ![alt text](./Images/InputExample.png)
+You can manually enter items for your shoppin list and their prices and your total will be calculated automatically.
 
 ### Finding Tax Rate and Prices
 
