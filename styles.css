@@ -1,3 +1,4 @@
+/*Entire page styles*/
 body{
     display: flex;
     flex-direction: row;
@@ -7,9 +8,12 @@ body{
     flex-wrap: wrap;
     background-color: #c3f1d9;
 }
+
+/*Style setting the minimun width of main section to 261px*/
 main{
     min-width:261px ;
 }
+/*Styles for the section labeling the list sections*/
 #header {
     display: flex;
     width: 50vw;
@@ -36,6 +40,8 @@ main{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+/*Styles for the shopping list and prices*/
 #input-area{
     display:flex;
     width: 50vw;
@@ -75,6 +81,8 @@ li{
 #prices input{
     width: 90%;
 }
+
+/*Styles for the section containing the taxrate input boxes as well as Total display box*/
 #output-section{
     display: flex;
     background-color: #9886bc;
@@ -107,6 +115,8 @@ li{
     
     
 }
+
+/*Styles for the section containing the save and load buttons as well as key input box.*/
 #save{
     display: flex;
     width: 50vw;
@@ -143,7 +153,7 @@ li{
     width: 20%;
 }
 
-
+/*Styles for the section containing the Sales tax calculator and the essential pricing section.*/
 #extra-inputs{
     display:flex;
     flex-direction: column;
@@ -159,16 +169,8 @@ li{
     min-height:251px ;
     
 }
-#essentials-section{
-    border: black 3px solid;
-    background-color: #c5aca0;
-    margin:3px;
-    border-radius: 10px;
-    padding:3px;
-    height: 50%;
-}
 
-#tax-rate-section{
+#essentials-section{
     border: black 3px solid;
     background-color: #c5aca0;
     margin:3px;
@@ -182,13 +184,21 @@ li{
     text-decoration: underline;
     text-decoration-style: dashed;
 }
+#tax-rate-section{
+    border: black 3px solid;
+    background-color: #c5aca0;
+    margin:3px;
+    border-radius: 10px;
+    padding:3px;
+    height: 50%;
+}
 #tax-rate-section h1{
     padding: 0;
     margin-top: 0;
     text-decoration: underline;
     text-decoration-style: dashed;
 }
-
+/*Styles for styling Various popups.*/
 .tax-ex{
     visibility: hidden;
     width: 160px;
