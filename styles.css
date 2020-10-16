@@ -242,12 +242,26 @@ li{
     top: 10px;
 }
 
-.show {
+#extra-inputs .show {
     visibility: visible;
-    animation: fadeIn 1s
+    animation: fadeInEI 1s
 }
 
-@keyframes fadeIn{
+#output-section .show {
+    visibility: visible;
+    animation: fadeInTX 1s
+}
+
+@keyframes fadeInEI{
     from {background-color: rgba(85, 85, 85, 0);}
     to {background-color: rgb(85, 85, 85);}
+    from {right: 0%;}
+    to {right: 110%;}
+}
+
+@keyframes fadeInTX{
+    from {background-color: rgba(85, 85, 85, 0);}
+    to {background-color: rgb(85, 85, 85);}
+    from {top: 0;}
+    to {top: -60px;}
 }
