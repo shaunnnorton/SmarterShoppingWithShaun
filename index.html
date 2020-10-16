@@ -21,6 +21,7 @@
         </header>
         <!--Section containing the lists for shpping items and prices-->
         <section id="input-area">
+            <h6>Shopping List</h6>
             <ul id="shopping-list">
             </ul>
             <ul id="prices">
@@ -28,6 +29,7 @@
         </section>
         <!--Section containing the TaxRate inputbox as well as the Total area-->
         <section id="output-section">
+            <h6>taxrate and Total</h6>
             <div id="TaxRate">
                 <input type="text" placeholder="TaxRate" id="tax-input" >
                 <div class="tax-ex" id="tax-popup">Input the Sales Tax for your area</div>
@@ -38,6 +40,7 @@
         </section>
         <!--Section containing the Buttons to save and load as well as an input box for a key.-->
         <section id="save">
+            <h6>save and load data</h6>
             <button id="Save-Button" type="button" class="data-buttons">Save</button>
             <input id="save-key" type="text" placeholder="Key">
             <button id="Load-Button" type="button" class="data-buttons">Load</button>
@@ -47,8 +50,10 @@
     <!--Start section for optional input that find taxrate and the price of essiental items-->
     <section id="extra-inputs">
         <!--Article for finding the tax rate-->
+        <h6>taxrate and essential item price</h6>
         <article id="tax-rate-section">
-            <h1>Find the Sales Tax For Your Area</h1>
+            <h6>Taxrate Finder</h6>
+            <h2>Find the Sales Tax For Your Area</h2>
             <span>Import TaxRate</span><br>
             <input type="number" id="zip-code" placeholder="ZIPCODE">
             <button id="zip-go-button" type="button">GO</button>
@@ -57,11 +62,12 @@
         </article>
         <!--Article for findin the prices of essiential items.-->
         <article id="essentials-section">
-            <h1>Find the Price of Essential Items</h1><br>
+            <h6>Price Finder</h6>
+            <h2>Find the Price of Essential Items</h2><br>
             <label id="area-selector-label">
                 What is the closest area to you?<br>
                 <select name="area" id="price-area">
-                    <option value="LV" name="area">Las Vegas, NV</option>
+                    <option value="LV">Las Vegas, NV</option>
                     <option value="Boise">Boise, ID</option>
                     <option value="DC">Washington, DC</option>
                     <option value="Honolulu">Honolulu, HI</option>
