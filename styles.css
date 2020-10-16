@@ -257,6 +257,9 @@ li{
     to {background-color: rgb(85, 85, 85);}
     from {right: 0%;}
     to {right: 110%;}
+    from {color: rgba(255, 255, 255, 0);}
+    to {color: rgba(255, 255, 255, 1);}
+
 }
 
 @keyframes fadeInTX{
@@ -264,6 +267,8 @@ li{
     to {background-color: rgb(85, 85, 85);}
     from {top: 0;}
     to {top: -60px;}
+    from {color: rgba(255, 255, 255, 0);}
+    to {color: rgba(255, 255, 255, 1);}
 }
 
 h6 {
