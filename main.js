@@ -173,7 +173,7 @@ function findEssientialPrices(){
     let items = document.querySelectorAll(".list_item")
     let costs = document.querySelectorAll(".price_item")
     for(let i=0; i<items.length;i++){
-        if(essentials_products.includes(items[i].value)){
+        if(essentials_products.includes(items[i].value.toLowerCase())){
             costs[i].value = checkPrices(items[i].value,essential_city.value)
         }
     }
