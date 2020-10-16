@@ -177,6 +177,7 @@ function findEssientialPrices(){
             costs[i].value = checkPrices(items[i].value.toLowerCase(),essential_city.value)
         }
     }
+    calculate_total()
 }
 //----------------------------------------------------------------------
 /*Makes a call to the zip-tax api with the provided zipcode in the input box. Then
@@ -191,6 +192,7 @@ function importTaxRate(){
     }
 
     xhr.send()
+    calculate_total()
 
 }
 //---------------------------------------------------------------
