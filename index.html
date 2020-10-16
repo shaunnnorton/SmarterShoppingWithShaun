@@ -7,25 +7,25 @@
     <title>Smarter Shopping with Shaun</title>
 </head>
 <body>
+    <!--Section for the main interactive area including shopping list and saving.-->
     <main>
+        <!--Header labeling the Shopping List and Prices-->
         <header id="header">
             <div id="shopping-list-header">
                 Shopping List
             </div>
             <div id="price-header">
                 Price
-                
             </div>
-            
         </header>
+        <!--Section containing the lists for shpping items and prices-->
         <section id="input-area">
             <ul id="shopping-list">
-
             </ul>
             <ul id="prices">
-
             </ul>
         </section>
+        <!--Section containing the TaxRate inputbox as well as the Total area-->
         <section id="output-section">
             <div id="TaxRate">
                 <input type="text" placeholder="TaxRate" id="tax-input" >
@@ -34,15 +34,18 @@
             <div id="Total">
                 Total:
             </div>
-
         </section>
+        <!--Section containing the Buttons to save and load as well as an input box for a key.-->
         <section id="save">
             <button id="Save-Button" type="button" class="data-buttons">Save</button>
             <input id="save-key" type="text" placeholder="Key">
             <button id="Load-Button" type="button" class="data-buttons">Load</button>
         </section>
     </main>
+    <!--END-->
+    <!--Start section for optional input that find taxrate and the price of essiental items-->
     <section id="extra-inputs">
+        <!--Article for finding the tax rate-->
         <article id="tax-rate-section">
             <h1>Find the Sales Tax For Your Area</h1>
             <span>Import TaxRate</span><br>
@@ -50,6 +53,7 @@
             <button id="zip-go-button" type="button">GO</button>
 
         </article>
+        <!--Article for findin the prices of essiential items.-->
         <article id="essentials-section">
             <h1>Find the Price of Essential Items</h1><br>
             <label id="area-selector-label">
@@ -66,14 +70,12 @@
                     <option value="Seattle">Seattle, WA</option>
                     <option value="SF">San Fransisco, CA</option>
                 </select>
-                
-            
             </label>
             <button type="button" id="essentials-button">Price Essentials</button>
-
         </article>
-        
     </section>
+    <!--END-->
     <script src="main.js"></script>
 </body>
 </html>
+<!--Hello From Las Vegas, NV -->

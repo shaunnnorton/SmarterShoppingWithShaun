@@ -1,20 +1,20 @@
 //---------------------------------------------------------------
 /*Declaring constant variables*/
-const shopping_list = document.querySelector("#shopping-list")
-const prices = document.querySelector("#prices")
-const zip_code_input = document.querySelector("#zip-code")
-const tax_input = document.querySelector("#tax-input")
-const tax_input_popup = document.querySelector(".tax-ex")
-const tax_rate = document.querySelector("#TaxRate")
-const total = document.querySelector("#Total")
-const save_key = document.querySelector("#save-key")
-const save_button = document.querySelector("#Save-Button")
-const load_button = document.querySelector("#Load-Button")
-const essentials_button = document.querySelector("#essentials-button")
-const essential_city = document.querySelector("#price-area")
-const tax_rate_button = document.querySelector("#zip-go-button")
-const essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']
-const starting_items = 10
+const shopping_list = document.querySelector("#shopping-list")//Unordered list for shopping items
+const prices = document.querySelector("#prices")//Unorder list for item prices
+const zip_code_input = document.querySelector("#zip-code")//Input box for the zipcode
+const tax_input = document.querySelector("#tax-input")//Inputbox for the taxrate
+const tax_input_popup = document.querySelector(".tax-ex")//Div that acts as a popup for TaxRate
+const tax_rate = document.querySelector("#TaxRate")//Parent div of the TaxRate
+const total = document.querySelector("#Total")//Div to display the total
+const save_key = document.querySelector("#save-key")//Input box for the key used to save
+const save_button = document.querySelector("#Save-Button")//Button that is used to save
+const load_button = document.querySelector("#Load-Button")//Button that is used to load
+const essentials_button = document.querySelector("#essentials-button")//Button that is used to price the essentials
+const essential_city = document.querySelector("#price-area")//Select element holding cities used by GroceryBear API
+const tax_rate_button = document.querySelector("#zip-go-button")//Button to find the TaxRate using Zipcode
+const essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']//List of items the GroceryBear API accepts
+const starting_items = 10//The number of items to start the list with
 //---------------------------------------------------------------
 /*Adding event listners for calculating total,saving and loading,finding prices, and finding the taxrate. */
 tax_rate.addEventListener("input",calculate_total)
