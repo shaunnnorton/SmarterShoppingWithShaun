@@ -6,12 +6,16 @@ const zip_code_input = document.querySelector("#zip-code")//Input box for the zi
 const tax_input = document.querySelector("#tax-input")//Inputbox for the taxrate
 const tax_input_popup = document.querySelector(".tax-ex")//Div that acts as a popup for TaxRate
 const tax_rate = document.querySelector("#TaxRate")//Parent div of the TaxRate
+const tax_section = document.querySelector("#tax-rate-section")//Article containing all the elemtent for pricing essentials
+const tax_popup = document.querySelector("#taxfind-popup")
 const total = document.querySelector("#Total")//Div to display the total
 const save_key = document.querySelector("#save-key")//Input box for the key used to save
 const save_button = document.querySelector("#Save-Button")//Button that is used to save
 const load_button = document.querySelector("#Load-Button")//Button that is used to load
 const essentials_button = document.querySelector("#essentials-button")//Button that is used to price the essentials
 const essential_city = document.querySelector("#price-area")//Select element holding cities used by GroceryBear API
+const essential_section = document.querySelector("#essentials-section")//Article containing all the elemtent for pricing essentials
+const essentials_popup = document.querySelector("#essentials-popup")
 const tax_rate_button = document.querySelector("#zip-go-button")//Button to find the TaxRate using Zipcode
 const essentials_products = ['eggs', 'milk', 'bread', 'rice', 'steak','butter']//List of items the GroceryBear API accepts
 const starting_items = 10//The number of items to start the list with
@@ -26,6 +30,11 @@ tax_rate_button.addEventListener("click", importTaxRate)
 /*Adding eventlistners to make desctiptive popups functional*/
 tax_input.addEventListener("mouseover",function(){tax_input_popup.classList.toggle("show")})
 tax_input.addEventListener("mouseout",function(){tax_input_popup.classList.toggle("show")})
+essential_section.addEventListener("mouseover",function(){essentials_popup.classList.toggle("show")})
+essential_section.addEventListener("mouseout",function(){essentials_popup.classList.toggle("show")})
+tax_section.addEventListener("mouseover",function(){tax_popup.classList.toggle("show")})
+tax_section.addEventListener("mouseout",function(){tax_popup.classList.toggle("show")})
+
 //---------------------------------------------------------------
 /*Creates the inital list of items in the shopping list*/
 for(let i = 0; i<starting_items;i++){

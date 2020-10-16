@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./Images/ChickenDrum.png" type="image/x-icon">
     <title>Smarter Shopping with Shaun</title>
 </head>
 <body>
@@ -51,6 +52,7 @@
             <span>Import TaxRate</span><br>
             <input type="number" id="zip-code" placeholder="ZIPCODE">
             <button id="zip-go-button" type="button">GO</button>
+            <div id="taxfind-popup" class="tax-popup">Enter your zip-code and hit GO! We will grab the sales tax for you.</div>
 
         </article>
         <!--Article for findin the prices of essiential items.-->
@@ -72,10 +74,11 @@
                 </select>
             </label>
             <button type="button" id="essentials-button">Price Essentials</button>
+            <div id="essentials-popup" class="essentials-popup">Pick the city closest to you and hit the button. We will fill in the prices of eggs, milk, bread, rice, steak, and butter for you.</div>
         </article>
     </section>
     <!--END-->
     <script src="main.js"></script>
 </body>
-</html>
 <!--Hello From Las Vegas, NV -->
+</html>

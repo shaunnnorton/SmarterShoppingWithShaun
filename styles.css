@@ -171,6 +171,7 @@ li{
 }
 
 #essentials-section{
+    position: relative;
     border: black 3px solid;
     background-color: #c5aca0;
     margin:3px;
@@ -185,6 +186,7 @@ li{
     text-decoration-style: dashed;
 }
 #tax-rate-section{
+    position: relative;
     border: black 3px solid;
     background-color: #c5aca0;
     margin:3px;
@@ -193,6 +195,7 @@ li{
     height: 50%;
 }
 #tax-rate-section h1{
+    
     padding: 0;
     margin-top: 0;
     text-decoration: underline;
@@ -212,9 +215,39 @@ li{
     right:30%;
     top: -60px;
 }
+.essentials-popup{
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 5px;
+    position: absolute;
+    z-index: 1;
+    right:110%;
+    top: 0px;
+}
+.tax-popup{
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 5px;
+    position: absolute;
+    z-index: 1;
+    right:110%;
+    top: 10px;
+}
 
 .show {
     visibility: visible;
-    
     animation: fadeIn 1s
-  }
+}
+
+@keyframes fadeIn{
+    from {background-color: rgba(85, 85, 85, 0);}
+    to {background-color: rgb(85, 85, 85);}
+}
